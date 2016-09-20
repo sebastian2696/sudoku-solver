@@ -41,7 +41,7 @@
           </descriptorRefs>
           <archive>
             <manifest>
-              <mainClass>coplan.execution.Driver</mainClass>
+              <mainClass>coplan.Driver</mainClass>
             </manifest>
           </archive>
         </configuration>
