@@ -1,5 +1,9 @@
 package coplan;
 
+import coplan.io.Output;
+import coplan.io.SudokuFileReader;
+import coplan.solver.Computations;
+import coplan.solver.LogicSolver;
 import coplan.solver.Sudoku;
 
 /**
@@ -10,10 +14,21 @@ public class Driver {
 
     public static void main( String[] args ) {
 
-        int[][] sudoku_data = new int[9][9];
-        sudoku_data[0][0] = 3;
+        String filepath = "/home/afcoplan/code/sudokus/easy.sudoku";
 
-        Sudoku sudoku = new Sudoku(sudoku_data);
-        System.out.println(sudoku.getPercentSolved());
+        Sudoku sudoku = SudokuFileReader.readFile(filepath);
+
+        System.out.println(sudoku.getPercentSolved() + "\n");
+
+        sudoku.print();
+
+        sudoku.printSquare(1,0);
+        Output.printArray(Computations.calculateMissingNumbers(sudoku.getSquare(1,0)));
+
+
+        LogicSolver solver = new LogicSolver();
+        solver.tryFits(sudoku, sudoku.getSquare(1,0));
+
     }
 }
+
