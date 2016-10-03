@@ -27,7 +27,7 @@ public class Driver {
 
 
         LogicSolver solver = new LogicSolver();
-        solver.tryFits(sudoku, sudoku.getSquare(1,0));
+        solver.tryRowFits(sudoku, 1);
 
     }
 }
