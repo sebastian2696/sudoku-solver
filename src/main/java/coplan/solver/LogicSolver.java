@@ -73,4 +73,8 @@ public class LogicSolver {
             }
         }
     }
+
+    private boolean onlyOption(){
+        return false;
+    }
 }

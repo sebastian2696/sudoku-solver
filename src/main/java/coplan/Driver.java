@@ -14,7 +14,7 @@ public class Driver {
 
     public static void main( String[] args ) {
 
-        String filepath = "/home/afcoplan/code/sudokus/easy.sudoku";
+        String filepath = "src/main/resources/sudokus/easy.sudoku";
 
         Sudoku sudoku = SudokuFileReader.readFile(filepath);
 
