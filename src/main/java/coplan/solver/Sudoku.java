@@ -23,6 +23,7 @@ public class Sudoku {
         this.data = data;
     }
 
+    // counts number of unsolved squares in the puzzle (unsolved is represented by a 0)
     public int getUnsolvedRemaining(){
         int num_unsolved = 0;
 

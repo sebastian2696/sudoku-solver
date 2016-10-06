@@ -1,9 +1,8 @@
 package coplan.solver;
 
-import coplan.io.Output;
-
 /**
- * Created by afcoplan on 9/22/16.
+ * Class for solution related methods such as inserting numbers,
+ * checking possibilities, validating sudokus, solution logic.
  */
 public class LogicSolver {
 
@@ -11,6 +10,7 @@ public class LogicSolver {
 
     }
 
+    // INCOMPLETE: attempting to insert numbers within a square
     public void trySquareFits(Sudoku sudoku, int verticalIndex, int horizontalIndex){
         int[][] squareData = sudoku.getSquare(verticalIndex, horizontalIndex);
         int[] missingNumbers = Computations.calculateMissingNumbers(squareData);
@@ -49,6 +49,9 @@ public class LogicSolver {
         }
     }
 
+    // MISSING: need tryColFits(Sudoku sudoku, int colNumber)
+
+    // INCOMPLETE: attempting to insert numbers within a row
     public void tryRowFits(Sudoku sudoku, int rowNumber){
         int[] rowData = sudoku.getRow(rowNumber);
         int[] missingNumbers = Computations.calculateMissingNumbers(rowData);
@@ -74,6 +77,7 @@ public class LogicSolver {
         }
     }
 
+    // INCOMPLETE: checks if a position is the only spot a number can go in a given row, col, or square
     private boolean onlyOption(){
         return false;
     }

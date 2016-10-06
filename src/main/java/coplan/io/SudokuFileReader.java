@@ -6,7 +6,7 @@ import java.io.File;
 import java.util.Scanner;
 
 /**
- * Created by afcoplan on 9/20/16.
+ * Class to read sudoku data from a file and return a Sudoku object.
  */
 public class SudokuFileReader {
 

@@ -1,7 +1,7 @@
 package coplan.io;
 
 /**
- * Created by afcoplan on 9/20/16.
+ * Class for neatly printing one and two dimensional arrays.
  */
 public class Output {
 
