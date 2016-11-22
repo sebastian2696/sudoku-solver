@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "Computations.h"
 
 void logn(char* log_string){
   printf("%s\n", log_string);
@@ -35,11 +36,28 @@ void print_col(int** sudoku, int col_number){
 }
 
 void print_square(int** sudoku, int square_x, int square_y){
-  for(int row = (square_x * 3); row < square_x + 3; ++row){
-    for(int col = (square_y * 3); col < square_y + 3; ++col){
+  for(int row = (square_x * 3); row < ((square_x * 3) + 3); ++row){
+    for(int col = (square_y * 3); col < ((square_y * 3) + 3); ++col){
       printf("%d ", sudoku[row][col]);
     }
     logn("");
+  }
+  logn("");
+}
+
+void print_size9_array(int* data){
+  for(int i = 0; i < 9; ++i){
+    printf("%d ", data[i]);
+  }
+  logn("");
+}
+
+void print_array_struct(struct array* array){
+  int* arr = array->data;
+  int size = array->size;
+
+  for(int i = 0; i < size; ++i){
+    printf("%d ", arr[i]);
   }
   logn("");
 }

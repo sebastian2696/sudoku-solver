@@ -1,6 +1,9 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include "Main.h"
+#include "Computations.h"
 #include "Output.h"
+
 
 int main(){
 
@@ -15,8 +18,17 @@ int main(){
 
   print_row(sudoku, 0);
   print_col(sudoku, 0);
-  print_square(sudoku, 0, 0);
+  print_square(sudoku, 1, 1);
 
+  logn("Number unsolved:");
+  printf("%d\n", get_num_unsolved(sudoku));
+
+  logn("Percent unsolved:");
+  printf("%f\n", get_percent_unsolved(sudoku));
+
+  int* row1 = get_row(sudoku, 1);
+  struct array* missing_numbers = calculateMissingNumbers(row1);
+  print_array_struct(missing_numbers);
 
   return 0;
 }
