@@ -15,27 +15,24 @@ public class Driver {
 
         // filepath to the current sudoku you would like to use for testing purposes
         String filepath = "src/main/resources/sudokus/easy.sudoku";
+        String filepath2 = "src/main/resources/sudokus/c-easy.sudoku";
 
         // reads from that file into a sudoku object
         Sudoku sudoku = SudokuFileReader.readFile(filepath);
+        Sudoku sudoku1 = SudokuFileReader.readFile(filepath2);
 
-        System.out.println(sudoku.getPercentSolved() + "\n");
+        for(int row = 0; row < 9; ++row){
+            int[] row1 = sudoku.getRow(row);
+            int[] row2 = sudoku.getRow(row);
 
-        /*
-         *  Main computational logic for solving of sudokus needs to either go here,
-         *  or in a "Solver.java" class of sorts, which contains all of the loops and method
-         *  calls necessary to find the solution.
-         */
+            for(int col = 0; col < 9; col++){
+                if(row1[col] != row2[col]){
+                    System.out.println("ERROR! DIFFERENCE");
+                }
+            }
+        }
 
-        sudoku.print();
-
-        sudoku.printSquare(1,0);
-        Output.printArray(Computations.calculateMissingNumbers(sudoku.getSquare(1,0)));
-
-
-        LogicSolver solver = new LogicSolver();
-        solver.tryRowFits(sudoku, 1);
-
+        System.out.println("Comparison done!");
     }
 }
 
