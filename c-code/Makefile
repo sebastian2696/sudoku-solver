@@ -1,4 +1,4 @@
 all: compile
 
 compile:
-	gcc -o main Main.c -g
+	gcc -o run Main.c Output.c -g
