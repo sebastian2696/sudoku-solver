@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include "Output.h"
-
+#include "Computations.h"
 
 int default_numbers[9] = {1,2,3,4,5,6,7,8,9};
 
@@ -57,16 +57,55 @@ int** get_square(int** sudoku, int square_x, int square_y){
       square[square_row][square_col] = sudoku[row][col];
       ++square_col;
     }
+    square_col = 0;
     ++square_row;
   }
 
   return square;
 }
 
-struct array* calculateMissingNumbers(int* data){
+struct array* calculateSquareMissingNumbers(int** data){
   int* occurrences = (int*)malloc(sizeof(int) * 9);
 
-  print_size9_array(data);
+  for(int i = 0; i < 9; ++i){
+    occurrences[i] = 0;
+  }
+
+  for(int row = 0; row < 3; ++row){
+    for(int col = 0; col < 3; ++col){
+      if(data[row][col] != 0){
+        occurrences[data[row][col] - 1]++;
+      }
+    }
+  }
+
+  int occurrences_of_zero = 0;
+  for(int i = 0; i < 9; ++i){
+    if(occurrences[i] == 0){
+      ++occurrences_of_zero;
+    }
+  }
+
+  int* missing_numbers = (int*)malloc(sizeof(int) * occurrences_of_zero);
+  struct array* missing_numbers_array = (struct array*)malloc(sizeof(struct array));
+
+  int index = 0;
+
+  for(int i = 0; i < 9; ++i){
+    if(occurrences[i] == 0){
+      missing_numbers[index] = i + 1;
+      ++index;
+    }
+  }
+
+  missing_numbers_array->data = missing_numbers;
+  missing_numbers_array->size = index;
+
+  return missing_numbers_array;
+}
+
+struct array* calculateMissingNumbers(int* data){
+  int* occurrences = (int*)malloc(sizeof(int) * 9);
 
   for(int i = 0; i < 9; ++i){
     occurrences[i] = 0;
@@ -77,8 +116,6 @@ struct array* calculateMissingNumbers(int* data){
       occurrences[data[i] - 1]++;
     }
   }
-
-  print_size9_array(occurrences);
 
   int occurrences_of_zero = 0;
   for(int i = 0; i < 9; ++i){

@@ -52,6 +52,16 @@ void print_size9_array(int* data){
   logn("");
 }
 
+void print_3x3_array(int** data){
+  for(int row = 0; row < 3; ++row){
+    for(int col = 0; col < 3; ++col){
+      printf("%d ", data[row][col]);
+    }
+    logn("");
+  }
+  logn("");
+}
+
 void print_array_struct(struct array* array){
   int* arr = array->data;
   int size = array->size;
