@@ -141,3 +141,22 @@ struct array* calculateMissingNumbers(int* data){
 
   return missing_numbers_array;
 }
+
+int contains_len9(int* data, int num){
+  for(int i = 0; i < 9; ++i){
+    if(data[i] == num){
+      return 1;
+    }
+  }
+  return 0;
+}
+
+int contains(struct array* data, int num){
+  int* arraydata = data->data;
+  for(int i = 0; i < data->size; ++i){
+    if(arraydata[i] == num){
+      return 1;
+    }
+  }
+  return 0;
+}

@@ -26,6 +26,9 @@ int main(){
   logn("Percent unsolved:");
   printf("%f\n", get_percent_unsolved(sudoku));
 
+  int* row = get_row(sudoku, 1);
+  print_size9_array(row);
+  printf("%d\n", contains(calculateMissingNumbers(row), 7));
 
   return 0;
 }
