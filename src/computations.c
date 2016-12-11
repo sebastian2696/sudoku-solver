@@ -1,6 +1,6 @@
 #include <stdlib.h>
-#include "Output.h"
-#include "Computations.h"
+#include "output.h"
+#include "computations.h"
 
 int default_numbers[9] = {1,2,3,4,5,6,7,8,9};
 

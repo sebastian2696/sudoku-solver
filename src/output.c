@@ -1,5 +1,5 @@
+#include "output.h"
 #include <stdio.h>
-#include "Computations.h"
 
 void logn(char* log_string){
   printf("%s\n", log_string);
