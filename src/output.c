@@ -1,5 +1,5 @@
 #include "output.h"
-#include <stdio.h>
+
 
 void print_row(int** sudoku, int row_number){
   int* row = sudoku[row_number];

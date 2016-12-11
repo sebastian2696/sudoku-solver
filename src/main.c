@@ -8,6 +8,7 @@ int main(void){
   int num_runs;
   int num_unsolved;
   int last_unsolved;
+  int exit_code;
   struct timeval start_time, end_time;
 
   // prompt for the file to read from?
@@ -25,7 +26,14 @@ int main(void){
 
   while(1){
     num_unsolved = get_num_unsolved(get_sudoku());
-    if(num_unsolved == 0 || num_unsolved == last_unsolved){
+    if(num_unsolved == 0){
+      exit_code = 0;
+      break;
+    }
+
+    if(num_unsolved == last_unsolved){
+      printf("Stuck!\n");
+      exit_code = -1;
       break;
     }
 
@@ -44,6 +52,11 @@ int main(void){
     ++num_runs;
 
     last_unsolved = num_unsolved;
+  }
+
+  // fix for when it gets stuck
+  if(exit_code == -1){
+    // enter some other algorithm, most likely a brute force solution using backtracking
   }
 
   gettimeofday(&end_time, NULL);
