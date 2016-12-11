@@ -20,7 +20,7 @@ void populate_values(void){
   int row;
   int col;
 
-  fptr = fopen("input/sudoku.txt", "r");
+  fptr = fopen("input/easy-sudoku.txt", "r");
 
   row = 0;
   col = 0;
@@ -62,15 +62,20 @@ int** get_sudoku(void){
   return sudoku;
 }
 
-int* get_row(int** sudoku, int row_number){
+int* get_row(int row_number){
   int* row;
+  int col;
 
-  row = sudoku[row_number];
+  row = (int*)malloc(sizeof(int) * 9);
+
+  for(col = 0; col < 9; ++col){
+    row[col] = sudoku[row_number][col];
+  }
 
   return row;
 }
 
-int* get_col(int** sudoku, int col_number){
+int* get_col(int col_number){
   int* col;
   int row;
 
@@ -83,7 +88,11 @@ int* get_col(int** sudoku, int col_number){
   return col;
 }
 
-int** get_square(int** sudoku, int square_x, int square_y){
+int get_value(int row, int col){
+  return sudoku[row][col];
+}
+
+int** get_square(int square_x, int square_y){
 
   int** square;
   int i;
@@ -113,6 +122,9 @@ int** get_square(int** sudoku, int square_x, int square_y){
   return square;
 }
 
+void set_val(int row, int col, int num){
+  sudoku[row][col] = num;
+}
 
 void print_sudoku(void){
   for(int row = 0; row < 9; ++row){

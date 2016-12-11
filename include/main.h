@@ -3,6 +3,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <sys/time.h>
 #include "computations.h"
 #include "output.h"
 #include "sudoku.h"

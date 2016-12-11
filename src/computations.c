@@ -1,5 +1,3 @@
-#include <stdlib.h>
-#include "output.h"
 #include "computations.h"
 
 int default_numbers[9] = {1,2,3,4,5,6,7,8,9};
@@ -23,8 +21,38 @@ int get_num_unsolved(int** sudoku){
   return num_unsolved;
 }
 
+void free_array_struct(struct array* array){
+  if(array){
+    if(array->data){
+      free(array->data);
+    }
+    free(array);
+  }
+}
+
+void free_1d_array(int* data){
+  if(data){
+    free(data);
+  }
+}
+
 double get_percent_unsolved(int** sudoku){
   return (double)get_num_unsolved(sudoku) / 81.0;
+}
+
+int contains_square(int** square, int num){
+  int row;
+  int col;
+
+  for(row = 0; row < 3; ++row){
+    for(col = 0; col < 3; ++col){
+      if(square[row][col] == num){
+        return 1;
+      }
+    }
+  }
+
+  return 0;
 }
 
 
