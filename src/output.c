@@ -1,20 +1,6 @@
 #include "output.h"
 #include <stdio.h>
 
-void logn(char* log_string){
-  printf("%s\n", log_string);
-}
-
-void print_sudoku(int ** sudoku){
-  for(int row = 0; row < 9; ++row){
-    for(int col = 0; col < 9; ++col){
-      printf("%d ", sudoku[row][col]);
-    }
-    logn("");
-  }
-  logn("");
-}
-
 void print_row(int** sudoku, int row_number){
   int* row = sudoku[row_number];
 
@@ -23,7 +9,7 @@ void print_row(int** sudoku, int row_number){
     row++;
   }
 
-  logn("\n");
+  printf("\n\n");
 }
 
 void print_col(int** sudoku, int col_number){
@@ -32,7 +18,7 @@ void print_col(int** sudoku, int col_number){
     printf("%d\n", sudoku[row][col_number]);
   }
 
-  logn("");
+  printf("\n");
 }
 
 void print_square(int** sudoku, int square_x, int square_y){
@@ -40,16 +26,16 @@ void print_square(int** sudoku, int square_x, int square_y){
     for(int col = (square_y * 3); col < ((square_y * 3) + 3); ++col){
       printf("%d ", sudoku[row][col]);
     }
-    logn("");
+    printf("\n");
   }
-  logn("");
+  printf("\n");
 }
 
 void print_size9_array(int* data){
   for(int i = 0; i < 9; ++i){
     printf("%d ", data[i]);
   }
-  logn("");
+  printf("\n");
 }
 
 void print_3x3_array(int** data){
@@ -57,9 +43,9 @@ void print_3x3_array(int** data){
     for(int col = 0; col < 3; ++col){
       printf("%d ", data[row][col]);
     }
-    logn("");
+    printf("\n");
   }
-  logn("");
+  printf("\n");
 }
 
 void print_array_struct(struct array* array){
@@ -69,5 +55,5 @@ void print_array_struct(struct array* array){
   for(int i = 0; i < size; ++i){
     printf("%d ", arr[i]);
   }
-  logn("");
+  printf("\n");
 }

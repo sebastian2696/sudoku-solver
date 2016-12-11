@@ -5,10 +5,10 @@ SRC_DIR = ./src
 CC = gcc
 CFLAGS = -I$(INCLUDE_DIR) -Wall -Wextra -pedantic -std=c99 -pedantic -Wmissing-prototypes -Wstrict-prototypes -Wold-style-definition -g -lm
 
-_DEPS = computations.h main.h output.h
+_DEPS = computations.h main.h output.h sudoku.h
 DEPS = $(patsubst %,$(INCLUDE_DIR)/%,$(_DEPS))
 
-_OBJ = computations.o main.o output.o
+_OBJ = computations.o main.o output.o sudoku.o
 OBJ = $(patsubst %,$(OBJ_DIR)/%,$(_OBJ))
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(DEPS)

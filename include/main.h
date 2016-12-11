@@ -1,8 +1,13 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include <stdlib.h>
+#include <stdio.h>
+#include "computations.h"
+#include "output.h"
+#include "sudoku.h"
+
 int main(void);
-int** allocate_sudoku(void);
-void populate_values(int** sudoku);
+void attempt_row_insertions(int row_num);
 
 #endif
