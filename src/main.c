@@ -6,37 +6,23 @@
 
 
 int main(void){
+  int** sudoku;
 
-  int** sudoku = allocate_sudoku();
-  logn("Sudoku allocated successfully.");
+  sudoku = allocate_sudoku();
 
   populate_values(sudoku);
-  logn("Sudoku values filled.");
 
-  logn("Initial, unsolved sudoku values:");
   print_sudoku(sudoku);
 
-  /* print_row(sudoku, 0); */
-  /* print_col(sudoku, 0); */
-  /* print_square(sudoku, 1, 1); */
-
-  /* logn("Number unsolved:"); */
-  /* printf("%d\n", get_num_unsolved(sudoku)); */
-
-  /* logn("Percent unsolved:"); */
-  /* printf("%f\n", get_percent_unsolved(sudoku)); */
-
-  /* int* row = get_row(sudoku, 1); */
-  /* print_size9_array(row); */
-  /* printf("%d\n", contains(calculateMissingNumbers(row), 7)); */
 
   return 0;
 }
 
 // allocates memory for the 2D array
 int** allocate_sudoku(void){
+  int** array;
 
-  int** array = (int**)malloc(sizeof(int*) * 9);
+  array = (int**)malloc(sizeof(int*) * 9);
 
   for(int i = 0; i < 9; ++i){
     array[i] = (int*)malloc(sizeof(int) * 9);
