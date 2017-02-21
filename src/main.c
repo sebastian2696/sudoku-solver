@@ -82,6 +82,8 @@ void attempt_square_insertions(int square_x, int square_y){
   int num_options;
   int option_row;
   int option_col;
+  int* row_array;
+  int* col_array;
 
   square = get_square(square_x, square_y);
   missing_numbers = calculateSquareMissingNumbers(square);
@@ -98,13 +100,17 @@ void attempt_square_insertions(int square_x, int square_y){
     for(row = (3*square_x); row < ((3*square_x)+3); ++row){
       for(col = (3*square_y); col < ((3*square_y)+3); ++col){
         if(get_value(row, col) == 0){
-          if(!contains_len9(get_row(row), num)){
-            if(!contains_len9(get_col(col), num)){
+          row_array = get_row(row);
+          if(!contains_len9(row_array, num)){
+            col_array = get_col(col);
+            if(!contains_len9(col_array, num)){
               ++num_options;
               option_col = col;
               option_row = row;
             }
+            free_1d_array(col_array);
           }
+          free_1d_array(row_array);
         }
       }
     }
@@ -116,7 +122,7 @@ void attempt_square_insertions(int square_x, int square_y){
     }
   }
 
-  // free square
+  free_2d_array(square);
   free_array_struct(missing_numbers);
 }
 
@@ -130,6 +136,8 @@ void attempt_col_insertions(int col_num){
   int square_y;
   int num_options;
   int option_row;
+  int* row_array;
+  int** square_array;
 
   square_y = col_num / 3;
 
@@ -147,14 +155,18 @@ void attempt_col_insertions(int col_num){
 
     for(row = 0; row < 9; ++row){
       if(get_value(row, col_num) == 0){
-        if(!contains_len9(get_row(row), num)){
+        row_array = get_row(row);
+        if(!contains_len9(row_array, num)){
           square_x = row / 3;
 
-          if(!contains_square(get_square(square_x, square_y), num)){
+          square_array = get_square(square_x, square_y);
+          if(!contains_square(square_array, num)){
             ++num_options;
             option_row = row;
           }
+          free_2d_array(square_array);
         }
+        free_1d_array(row_array);
       }
     }
 
@@ -180,6 +192,8 @@ void attempt_row_insertions(int row_num){
   int square_y;
   int num_options;
   int option_col;
+  int* col_array;
+  int** square_array;
 
   square_x = row_num / 3;
 
@@ -197,14 +211,18 @@ void attempt_row_insertions(int row_num){
 
     for(col = 0; col < 9; ++col){
       if(get_value(row_num, col) == 0){
-        if(!contains_len9(get_col(col), num)){
+        col_array = get_col(col);
+        if(!contains_len9(col_array, num)){
           square_y = col / 3;
 
-          if(!contains_square(get_square(square_x, square_y), num)){
+          square_array = get_square(square_x, square_y);
+          if(!contains_square(square_array, num)){
             ++num_options;
             option_col = col;
           }
+          free_2d_array(square_array);
         }
+        free_1d_array(col_array);
       }
     }
 

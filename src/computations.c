@@ -30,6 +30,22 @@ void free_array_struct(struct array* array){
   }
 }
 
+
+void free_2d_array(int** data){
+  int i;
+
+  if(data){
+    for(i = 0; i < 3; ++i){
+      if(data[i]){
+        free(data[i]);
+      }
+    }
+
+    free(data);
+  }
+
+}
+
 void free_1d_array(int* data){
   if(data){
     free(data);
