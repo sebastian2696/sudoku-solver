@@ -2,7 +2,7 @@
 
 ## Overview 
 
-Given an input file (or eventually an image), will solve a Sudoku puzzle.
+Given an input file, this program will solve a Sudoku puzzle at a ridiculously fast rate.
 
 1. Read input file into an array.
 2. Solve.
