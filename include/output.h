@@ -1,8 +1,6 @@
 #ifndef OUTPUT_H
 #define OUTPUT_H
 
-#include <stdio.h>
-#include "computations.h"
 #include "structs.h"
 
 void print_row(int** sudoku, int row_number);

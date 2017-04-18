@@ -1,3 +1,6 @@
+#include <stdio.h>
+
+#include "structs.h"
 #include "output.h"
 
 

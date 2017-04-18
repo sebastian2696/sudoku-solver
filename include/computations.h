@@ -1,8 +1,6 @@
 #ifndef COMPUTATIONS_H
 #define COMPUTATIONS_H
 
-#include <stdlib.h>
-#include "output.h"
 #include "structs.h"
 
 int get_num_unsolved(int** sudoku);

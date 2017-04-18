@@ -1,9 +1,6 @@
 #ifndef SUDOKU_H
 #define SUDOKU_H
 
-#include <stdlib.h>
-#include <stdio.h>
-
 void allocate_sudoku(void);
 void populate_values(void);
 void free_sudoku(void);

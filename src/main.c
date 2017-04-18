@@ -1,4 +1,16 @@
-#include "main.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <sys/time.h>
+
+#include "structs.h"
+#include "output.h"
+#include "sudoku.h"
+#include "computations.h"
+
+static void attempt_row_insertions(int row_num);
+static void attempt_col_insertions(int col_num);
+static void attempt_square_insertions(int square_x, int square_y);
+
 
 int main(void){
         int row;
@@ -72,7 +84,7 @@ int main(void){
         return 0;
 }
 
-void attempt_square_insertions(int square_x, int square_y){
+static void attempt_square_insertions(int square_x, int square_y){
         int** square;
         struct array* missing_numbers;
         int i;
@@ -126,7 +138,7 @@ void attempt_square_insertions(int square_x, int square_y){
         free_array_struct(missing_numbers);
 }
 
-void attempt_col_insertions(int col_num){
+static void attempt_col_insertions(int col_num){
         int* col;
         struct array* missing_numbers;
         int i;
@@ -182,7 +194,7 @@ void attempt_col_insertions(int col_num){
 
 }
 
-void attempt_row_insertions(int row_num){
+static void attempt_row_insertions(int row_num){
         int* row;
         struct array* missing_numbers;
         int i;
