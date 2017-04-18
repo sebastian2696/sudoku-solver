@@ -15,7 +15,7 @@ void allocate_sudoku(void){
         }
 }
 
-void populate_values(void){
+void populate_values(char* file_path){
         // read from file and populate
         FILE* fptr;
         int run;
@@ -23,7 +23,7 @@ void populate_values(void){
         int row;
         int col;
 
-        fptr = fopen("input/easy-sudoku.txt", "r");
+        fptr = fopen(file_path, "r");
 
         row = 0;
         col = 0;

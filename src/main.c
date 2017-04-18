@@ -7,12 +7,13 @@
 #include "sudoku.h"
 #include "computations.h"
 
+#define USAGE_INFO "Usage: ./build <sudoku file path>"
+
 static void attempt_row_insertions(int row_num);
 static void attempt_col_insertions(int col_num);
 static void attempt_square_insertions(int square_x, int square_y);
 
-
-int main(void){
+int main(int argc, char** argv){
         int row;
         int col;
         int square_x;
@@ -21,12 +22,19 @@ int main(void){
         int num_unsolved;
         int last_unsolved;
         int exit_code;
+        char* file_path;
         struct timeval start_time, end_time;
 
-        // prompt for the file to read from?
+        if(argc != 2){
+                printf("Invalid number of arguments!\n");
+                printf("%s\n", USAGE_INFO);
+                return -1;
+        }
+
+        file_path = argv[1];
 
         allocate_sudoku();
-        populate_values();
+        populate_values(file_path);
 
         print_sudoku();
 

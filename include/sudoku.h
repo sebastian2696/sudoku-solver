@@ -2,7 +2,7 @@
 #define SUDOKU_H
 
 void allocate_sudoku(void);
-void populate_values(void);
+void populate_values(char* file_path);
 void free_sudoku(void);
 int get_value(int row, int col);
 int* get_row(int row_number);
