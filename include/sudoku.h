@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+extern int** sudoku;
+
 void allocate_sudoku(void);
 void populate_values(void);
 void free_sudoku(void);
