@@ -20,7 +20,7 @@ void populate_values(void){
   int row;
   int col;
 
-  fptr = fopen("input/easy-sudoku.txt", "r");
+  fptr = fopen("input/hard-sudoku.txt", "r");
 
   row = 0;
   col = 0;
