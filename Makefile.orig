@@ -5,7 +5,11 @@ SRC_DIR = ./src
 CC = gcc
 CFLAGS = -I$(INCLUDE_DIR) -Wall -Wextra -pedantic -std=c99 -pedantic -Wmissing-prototypes -Wstrict-prototypes -Wold-style-definition -g -lm
 
+<<<<<<< HEAD
+_DEPS = computations.h main.h output.h sudoku.h bruteforce.h
+=======
 _DEPS = computations.h output.h sudoku.h bruteforce.h
+>>>>>>> 4c4e438d1951664685d0a7f03a88697406e91187
 DEPS = $(patsubst %,$(INCLUDE_DIR)/%,$(_DEPS))
 
 _OBJ = computations.o main.o output.o sudoku.o bruteforce.o

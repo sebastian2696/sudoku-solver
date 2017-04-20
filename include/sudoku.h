@@ -1,13 +1,13 @@
 #ifndef SUDOKU_H
 #define SUDOKU_H
 
-#include <stdlib.h>
-#include <stdio.h>
+
+extern int** sudoku;
 
 extern int** sudoku;
 
 void allocate_sudoku(void);
-void populate_values(void);
+void populate_values(char* file_path);
 void free_sudoku(void);
 int get_value(int row, int col);
 int* get_row(int row_number);

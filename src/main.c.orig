@@ -83,7 +83,15 @@ int main(int argc, char** argv){
                 brute_force_solve();
         }
 
+<<<<<<< HEAD
+  // fix for when it gets stuck
+  if(exit_code == -1){
+    // enter some other algorithm, most likely a brute force solution using backtracking
+    sudokuSolver();
+  }
+=======
         printf("Finished\n");
+>>>>>>> 4c4e438d1951664685d0a7f03a88697406e91187
 
         gettimeofday(&end_time, NULL);
 
@@ -279,3 +287,4 @@ static int attempt_row_insertions(int row_num){
         free_array_struct(missing_numbers);
 
         return changes_made;
+}

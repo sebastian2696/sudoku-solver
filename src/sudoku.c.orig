@@ -23,7 +23,11 @@ void populate_values(char* file_path){
         int row;
         int col;
 
+<<<<<<< HEAD
+  fptr = fopen("input/hard-sudoku.txt", "r");
+=======
         fptr = fopen(file_path, "r");
+>>>>>>> 4c4e438d1951664685d0a7f03a88697406e91187
 
         row = 0;
         col = 0;
