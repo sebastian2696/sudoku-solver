@@ -5,7 +5,7 @@
 int ** sudoku;
 
 int row,col;
-long int Calls =0;
+long int Calls = 0;
 
 int findEmptyCell(void){
         int i,j;

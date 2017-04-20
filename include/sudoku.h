@@ -14,5 +14,9 @@ int** get_square(int square_x, int square_y);
 int** get_sudoku(void);
 void set_val(int row, int col, int num);
 void print_sudoku(void);
+int validate_sudoku(void);
+int validate_row(int* row);
+int validate_col(int* col);
+int validate_square(int** square);
 
 #endif
