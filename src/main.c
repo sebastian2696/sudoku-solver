@@ -6,6 +6,7 @@
 #include "output.h"
 #include "sudoku.h"
 #include "computations.h"
+#include "bruteforce.h"
 
 #define USAGE_INFO "Usage: ./build <sudoku file path>"
 
@@ -79,7 +80,7 @@ int main(int argc, char** argv){
         if(exit_code == -1){
                 // enter some other algorithm, most likely a brute force solution using backtracking
                 printf("Got stuck using intelligent algorithm, entering brute force now...\n");
-                sudokuSolver();
+                brute_force_solve();
         }
 
         printf("Finished\n");
