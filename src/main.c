@@ -279,3 +279,4 @@ static int attempt_row_insertions(int row_num){
         free_array_struct(missing_numbers);
 
         return changes_made;
+}        
