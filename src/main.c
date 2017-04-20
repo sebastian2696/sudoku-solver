@@ -57,6 +57,7 @@ int main(void){
   // fix for when it gets stuck
   if(exit_code == -1){
     // enter some other algorithm, most likely a brute force solution using backtracking
+    sudokuSolver();
   }
 
   gettimeofday(&end_time, NULL);
