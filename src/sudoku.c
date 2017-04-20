@@ -2,6 +2,7 @@
 #include <stdio.h>
 
 #include "sudoku.h"
+#include "output.h"
 
 int** sudoku;
 
@@ -137,4 +138,117 @@ void print_sudoku(void){
                 printf("\n");
         }
         printf("\n");
+}
+
+int validate_sudoku(void){
+        int i;
+        int row_num;
+        int col_num;
+        int* row;
+        int* col;
+        int** square;
+
+        for(i = 0; i < 9; ++i){
+                row = get_row(i);
+                col = get_col(i);
+
+                if(validate_row(row) == -1){
+                        printf("Invalid row: %d\n", i);
+                        print_size9_array(row);
+                        return -1;
+                }
+
+                if(validate_col(col) == -1){
+                        printf("Invalid col: %d\n", i);
+                        print_size9_array(col);
+                        return -1;
+                }
+        }
+
+        for(row_num = 0; row_num < 3; ++row_num){
+                for(col_num = 0; col_num < 3; ++col_num){
+                        square = get_square(row_num, col_num);
+
+                        if(validate_square(square) == -1){
+                                printf("Invalid square: %d, %d\n", row_num, col_num);
+                                print_3x3_array(square);
+                                return -1;
+                        }
+                }
+        }
+
+        return 0;
+}
+
+int validate_row(int* row){
+        int i;
+        int j;
+        int num;
+
+        for(i = 0; i < 9; ++i){
+                num = row[i];
+                if(num == 0){
+                        continue;
+                }
+
+                for(j = i + 1; j < 9; ++j){
+                        if(row[j] == num){
+                                return -1;
+                        }
+                }
+        }
+
+        return 0;
+}
+
+int validate_col(int* col){
+        int i;
+        int j;
+        int num;
+
+        for(i = 0; i < 9; ++i){
+                num = col[i];
+                if(num == 0){
+                        continue;
+                }
+
+                for(j = i + 1; j < 9; ++j){
+                        if(col[j] == num){
+                                return -1;
+                        }
+                }
+        }
+
+        return 0;
+}
+
+int validate_square(int** square){
+        int num;
+        int row;
+        int col;
+        int r2;
+        int c2;
+
+        for(row = 0; row < 3; ++row){
+                for(col = 0; col < 3; ++col){
+                        num = square[row][col];
+                        if(num == 0){
+                                continue;
+                        }
+
+                        for(r2 = 0; r2 < 3; ++r2){
+                                for(c2 = 0; c2 < 3; ++c2){
+                                        if(row == r2 && col == c2){
+                                                continue;
+                                        }
+
+                                        if(num == square[r2][c2]){
+                                                return -1;
+                                        }
+                                }
+                        }
+                }
+        }
+
+        return 0;
 }

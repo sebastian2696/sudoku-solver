@@ -25,6 +25,7 @@ int main(int argc, char** argv){
         int exit_code;
         int changes_made;
         char* file_path;
+        int is_valid;
         struct timeval start_time, end_time;
 
         if(argc != 2){
@@ -37,6 +38,12 @@ int main(int argc, char** argv){
 
         allocate_sudoku();
         populate_values(file_path);
+
+        is_valid = validate_sudoku();
+        if(is_valid == -1){
+                printf("Invalid sudoku input!\n");
+                return -1;
+        }
 
         print_sudoku();
 
