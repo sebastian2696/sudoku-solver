@@ -1,8 +1,8 @@
 # sudoku-solver
 
-## Overview 
-
 Given an input file, this program will solve a Sudoku puzzle at a ridiculously fast rate.  I have included several sample sudokus of varying difficulty and varying validity in the `input/` directory, which allows for easy testing of the program's sudoku solving and input validation capabilities.
+
+This project is licensed under the MIT license.
 
 # How to Build and Run
 
